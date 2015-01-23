@@ -20,6 +20,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/myo.js', function(req, res){
+    res.sendfile('./node_modules/myo/myo.js');
+});
 
 app.use('/', routes);
 app.use('/users', users);
